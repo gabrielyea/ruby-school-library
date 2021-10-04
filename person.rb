@@ -24,5 +24,3 @@ class Person
   end
 end
 
-person = Person.new(18)
-p person

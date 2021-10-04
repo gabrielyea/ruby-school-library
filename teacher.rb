@@ -10,6 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-person1 = Teacher.new('biology', 10, name: 'pro')
-p person1.can_use_services?
