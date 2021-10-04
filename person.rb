@@ -12,7 +12,9 @@ class Person
   private
 
   def of_age?
-    true if age >= 18
+    return true if age >= 18
+
+    false
   end
 
   public
