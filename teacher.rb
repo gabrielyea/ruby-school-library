@@ -1,9 +1,9 @@
 require_relative 'person'
 
 class Teacher < Person
-  def initialize(speialization, age, **optional_data)
+  def initialize(speialization, **options)
     @speialization = speialization
-    super(age, **optional_data)
+    super(**options)
   end
 
   def can_use_services?

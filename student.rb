@@ -1,12 +1,16 @@
 require_relative 'person'
 
 class Student < Person
-  def initialize(classroom, age, **optional_data)
+  def initialize(classroom, **options)
+    puts options.inspect
     @classroom = classroom
-    super(age, **optional_data)
+    super(**options)
   end
 
   def play_hooky
     '¯\(ツ)/¯'
   end
 end
+
+student = Student.new('101', age: 20, name: 'daniel Cosi', parent_permission: false)
+p student
