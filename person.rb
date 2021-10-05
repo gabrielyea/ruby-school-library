@@ -31,6 +31,3 @@ class Person
     @corrector.correct_name(name)
   end
 end
-
-person = Person.new(age: 18, name: 'gabriel Rendon')
-p person

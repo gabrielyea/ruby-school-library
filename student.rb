@@ -11,6 +11,3 @@ class Student < Person
     '¯\(ツ)/¯'
   end
 end
-
-student = Student.new('101', age: 20, name: 'daniel Cosi', parent_permission: false)
-p student
