@@ -4,9 +4,8 @@ class Person
   attr_reader :id
 
   def initialize(age:, name: 'Unknown', parent_permission: true)
-    @corrector = Corrector.new
     @id = ''
-    @name = validate_name(name)
+    @name = name
     @age = age
     @parent_permission = parent_permission
   end
@@ -25,9 +24,5 @@ class Person
     return true if of_age? || @parent_permission
 
     false
-  end
-
-  def validate_name(name)
-    @corrector.correct_name(name)
   end
 end
