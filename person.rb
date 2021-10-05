@@ -3,7 +3,7 @@ class Person
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(age, name: 'Unknown', parent_permission: true)
+  def initialize(age:, name: 'Unknown', parent_permission: true)
     @corrector = Corrector.new
     @id = ''
     @name = validate_name(name)
@@ -32,5 +32,5 @@ class Person
   end
 end
 
-person = Person.new(18, name: 'gabriel Rendon')
+person = Person.new(age: 18, name: 'gabriel Rendon')
 p person
