@@ -32,5 +32,5 @@ class Person
   end
 end
 
-person = Person.new(18, name: 'gabriel rendon')
+person = Person.new(18, name: 'gabriel Rendon')
 p person
