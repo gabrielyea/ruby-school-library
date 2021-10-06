@@ -40,3 +40,9 @@ all_rentals.each do |rent|
   p "#{rent.person.name} rented #{rent.book.title} on #{rent.date}"
 end
 puts '------'
+
+puts '--BOOK RENTALS--'
+p book1.rentals.each do |rented |
+
+end
+puts '------'
