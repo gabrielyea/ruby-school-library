@@ -1,9 +1,10 @@
 require_relative 'person'
 
 class Student < Person
-  def initialize(classroom, **options)
-    puts options.inspect
-    @classroom = classroom
+  attr_accessor :classroom
+
+  def initialize(classroom: nil, **options)
+    @classroom = classroom.add_student(self) unless classroom.nil?
     super(**options)
   end
 
@@ -11,6 +12,3 @@ class Student < Person
     '¯\(ツ)/¯'
   end
 end
-
-student = Student.new('101', age: 20, name: 'daniel Cosi', parent_permission: false)
-p student
