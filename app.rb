@@ -19,6 +19,8 @@ classroom2.add_student(student3)
 book1 = Book.new('book2', 'author 1')
 book2 = Book.new('book1', 'author 2')
 
+book1.add_rental(student1, 'December')
+
 all_rentals = [Rental.new('march', student1, book1), Rental.new('june', student1, book2),
                Rental.new('july', student2, book1)]
 
@@ -37,6 +39,12 @@ puts '------'
 
 puts '--RENTALS AND STUDENTS--'
 all_rentals.each do |rent|
+  p "#{rent.person.name} rented #{rent.book.title} on #{rent.date}"
+end
+puts '------'
+
+puts '--RENTALS FROM BOOK--'
+book1.rentals.each do |rent|
   p "#{rent.person.name} rented #{rent.book.title} on #{rent.date}"
 end
 puts '------'
