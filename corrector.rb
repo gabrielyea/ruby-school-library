@@ -1,8 +1,10 @@
-class Corrector
+require_relative 'decorator'
+class Corrector < Decorator
   attr_accessor :component
 
   def initialize(component)
     @component = component
+    super
   end
 
   def operation
