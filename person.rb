@@ -6,7 +6,7 @@ class Person
 
   def initialize(age:, name: 'Unknown', parent_permission: true)
     @corrector = Corrector.new
-    @id = ''
+    @id = rand 0..999
     @name = validate_name(name)
     @age = age
     @parent_permission = parent_permission
