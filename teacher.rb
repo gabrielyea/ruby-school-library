@@ -1,8 +1,8 @@
 require_relative 'person'
 
 class Teacher < Person
-  def initialize(speialization, **options)
-    @speialization = speialization
+  def initialize(specialization:, **options)
+    @specialization = specialization
     super(**options)
   end
 
