@@ -1,6 +1,6 @@
 require_relative 'app'
 
 class Main
-  app = new App
+  app = App.new
   app.run
 end
