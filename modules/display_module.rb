@@ -1,6 +1,5 @@
-module Helpers
+module DisplayModule
   Type = Struct.new(:name, :required_params)
-  Option = Struct.new(:desc, :ref)
 
   convert_to_instance = lambda do |name, obj|
     return 'None' unless obj.instance_variable_defined?("@#{name}")
@@ -70,22 +69,5 @@ module Helpers
     false
   end
 
-  Create_Entity = lambda do |entity, store_list|
-    temp_args = {}
-    entity.required_params.each do |param|
-      puts "Enter #{param}"
-      input = gets.strip.to_s
-      temp_args.merge!(param => input)
-    end
-    new_entity = entity.name.new(**temp_args)
-    store_list << new_entity
-    Clear_Display.call
-    puts "#{entity.name} created!!"
-    puts 'Hit enter to continue!'
-    new_entity
-  end
-
   Clear_Display = -> { system('clear') || system('cls') }
-
-  Lambta_Test = -> { ' p helo i am a test ' }
 end
