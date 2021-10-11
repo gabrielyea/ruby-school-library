@@ -21,8 +21,7 @@ class Create
 
   def create_book
     book = Type.new(Book, %i[author title])
-    Show_Prompt.call(book.required_params)
-    @data.books << book.name.new(**args)
+    @data.books << book.name.new(**Show_Prompt.call(book.required_params))
   end
 
   def create_rental
