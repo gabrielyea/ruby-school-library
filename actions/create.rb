@@ -1,10 +1,9 @@
 require_relative '../modules/input_handler_module'
 require_relative '../modules/display_module'
-require_relative '../modules/creator_module'
+
 class Create
   include InputHandler
   include DisplayModule
-  include CreatorModule
 
   def initialize(data)
     @data = data
@@ -21,12 +20,21 @@ class Create
   end
 
   def create_book
-    book = Type.new(Book, %i[title author])
-    args = Show_Prompt.call(book.required_params)
-    @data.books << book.name.new(**args)
   end
 
   def create_rental
-    Show_Prompt_With_Callback.call(%i[id], 'Enter index number of book', @data.books, callback: Get_By_Index)
+    List_Collection.call(@data.books, 'Books', %i[title], Display_Table)
+    book = Show_Prompt_With_Callback.call(
+      %i[index], 'Enter index number of the book', @data.books, callback: Get_By_Index
+    )
+
+    List_Collection.call(@data.people, 'Person', %i[name], Display_Table)
+    person = Show_Prompt_With_Callback.call(
+      %i[index], 'Enter index number of the person', @data.people, callback: Get_By_Index
+    )
+
+    date = Show_Prompt.call(%i[date])
+
+    @data.rentals << Rental.new(date: date[:date].to_s, person: person, book: book)
   end
 end
