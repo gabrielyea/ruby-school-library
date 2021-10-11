@@ -1,27 +1,23 @@
 module DisplayModule
   Type = Struct.new(:name, :required_params)
 
-  convert_to_instance = lambda do |name, obj|
-    return 'None' unless obj.instance_variable_defined?("@#{name}")
-
-    obj.instance_variable_get("@#{name}")
-  end
+  get_instance_value = ->(label, obj) { obj.respond_to?(label) ? obj.send(label) : 'None' }
 
   max_string_length = lambda do |collection, labels|
     max = 0
     collection.each do |obj|
       labels.each do |label|
-        convert_to_instance.call(label, obj).to_s.length > max && max = convert_to_instance.call(label, obj).to_s.length
+        get_instance_value.call(label, obj).to_s.length > max && max = get_instance_value.call(label, obj).to_s.length
       end
     end
     return max
   end
 
-  List_Collection = lambda do |collection, title, labels, callback, *options|
-    callback.call(collection, title, labels, *options)
+  List_Collection = lambda do |collection, table_title, labels, behaviour, *options|
+    behaviour.call(collection, table_title, labels, *options)
   end
 
-  Display_By_Labels = lambda do |collection, title, labels|
+  Display_Table = lambda do |collection, title, labels|
     max = max_string_length.call(collection, labels)
     temp_string = '#..'
     labels.each { |label| temp_string += " #{label.to_s.capitalize.ljust(max + 2, '.')}" }
@@ -33,7 +29,7 @@ module DisplayModule
 
     collection.each_with_index do |obj, index|
       temp_string = "#{index + 1}.."
-      labels.each { |label| temp_string += " #{convert_to_instance.call(label, obj).to_s.ljust(max + 2, '.')}" }
+      labels.each { |label| temp_string += " #{get_instance_value.call(label, obj).to_s.ljust(max + 2, '.')}" }
       puts temp_string
     end
     puts
@@ -43,21 +39,27 @@ module DisplayModule
     result = collection.select { |rent| rent.person.id == id }
     table = result.map do |res|
       temp = Object.new
-      temp.instance_variable_set(:@date, res.date)
-      temp.instance_variable_set(:@name, res.person.name)
-      temp.instance_variable_set(:@title, res.book.title)
+      class << temp
+        attr_accessor :name, :date, :title
+      end
+      temp.date = res.date
+      temp.name = res.person.name
+      temp.title = res.book.title
       temp
     end
-    Display_By_Labels.call(table, title, labels)
+    Display_Table.call(table, title, labels)
   end
 
   Display_By_Class_Name = lambda do |collection, title, labels|
     table = collection.map do |res|
       temp = Object.new
-      temp.instance_variable_set(:@name, res.name)
+      class << temp
+        attr_accessor :name
+      end
+      temp.name = res.name
       temp
     end
-    Display_By_Labels.call(table, title, labels)
+    Display_Table.call(table, title, labels)
   end
 
   Get_By_Index = lambda do |collection, index|
