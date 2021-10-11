@@ -1,6 +1,6 @@
 require_relative 'menu'
-require_relative 'create'
-require_relative 'display'
+require_relative './actions/create'
+require_relative './actions/display'
 require_relative 'data'
 require_relative 'mock_data'
 
@@ -22,7 +22,7 @@ end
 mock = Mock.new
 data = Data.new
 
-actions = [Create.new(data), Display.new(mock)]
+actions = [Create.new(mock), Display.new(mock)]
 menu = Menu.new
 Manager.new(menu, actions)
 menu.run
