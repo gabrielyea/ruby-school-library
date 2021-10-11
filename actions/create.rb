@@ -15,6 +15,8 @@ class Create
     types = [teacher, student]
     List_Collection.call(types, 'Types', %i[name], Display_By_Class_Name)
 
+    person = Show_Prompt_With_Callback.call(%i[index], 'Pick type of person', types, callback: Get_By_Index)
+
     @data.people << person.name.new(**Show_Prompt.call(person.required_params))
   end
 
