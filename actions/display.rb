@@ -19,6 +19,8 @@ class Display
   end
 
   def list_rentals_by_id
-    List_Collection.call(data.people, 'Peolple', %i[id name], Display_Table)
+    List_Collection.call(data.people, 'People', %i[id name], Display_Table)
+    results = Show_Prompt_With_Callback.call(%i[index], 'Enter the id of the person', data.rentals, callback: Get_By_Id)
+    List_Collection.call(results, 'Results', %i[name title date], Display_Table)
   end
 end
