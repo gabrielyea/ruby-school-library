@@ -19,5 +19,6 @@ class Display
   end
 
   def list_rentals_by_id
+    List_Collection.call(data.people, 'Peolple', %i[id name], Display_Table)
   end
 end
