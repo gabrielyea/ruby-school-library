@@ -15,8 +15,7 @@ class Create
     types = [teacher, student]
     List_Collection.call(types, 'Types', %i[name], Display_By_Class_Name)
 
-    args = Show_Prompt.call(person.required_params)
-    @data.people << person.name.new(**args)
+    @data.people << person.name.new(**Show_Prompt.call(person.required_params))
   end
 
   def create_book
