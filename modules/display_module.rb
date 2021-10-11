@@ -63,12 +63,27 @@ module DisplayModule
   end
 
   Get_By_Index = lambda do |collection, index|
-    return collection[index] unless collection[index].nil? || index.negative?
+    return collection[index - 1] unless collection[index - 1].nil? || index.negative?
 
     puts
     puts '**** INVALID INDEX TRY AGAIN ****'
     puts
     false
+  end
+
+  Get_By_Id = lambda do |collection, id|
+    result = collection.select { |rent| rent.person.id == id }
+    table = result.map do |res|
+      temp = Object.new
+      class << temp
+        attr_accessor :name, :date, :title
+      end
+      temp.date = res.date
+      temp.name = res.person.name
+      temp.title = res.book.title
+      temp
+    end
+    table
   end
 
   Clear_Display = -> { system('clear') || system('cls') }

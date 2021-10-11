@@ -11,8 +11,13 @@ module InputHandler
   end
 
   Show_Prompt_With_Callback = lambda do |required_params, message, *args, callback:|
-    puts message
-    op = Show_Prompt.call(required_params)
-    callback.call(args, op)
+    result = nil
+    loop do
+      puts message
+      op = Show_Prompt.call(required_params)
+      result = callback.call(*args, op[:index].to_i)
+      break if result
+    end
+    result
   end
 end
