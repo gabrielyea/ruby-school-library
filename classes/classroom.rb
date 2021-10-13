@@ -13,4 +13,11 @@ class ClassRoom
     @students.push(student)
     student.classroom = self
   end
+
+  def to_json(*options)
+    {
+      'label' => @label,
+      'students' => @students
+    }.to_json(*options)
+  end
 end
