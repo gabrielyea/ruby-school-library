@@ -17,7 +17,7 @@ class Create
 
     person = Show_Prompt_With_Callback.call(%i[index], 'Pick type of person', types, callback: Get_By_Index)
 
-    @data.people << person.name.new(**Show_Prompt.call(person.required_params))
+    @data.people << person.name.new(id: nil, **Show_Prompt.call(person.required_params))
   end
 
   def create_book
