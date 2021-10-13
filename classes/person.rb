@@ -4,9 +4,9 @@ class Person
   attr_accessor :name, :age
   attr_reader :id, :rentals
 
-  def initialize(age:, name: 'Unknown', parent_permission: true)
+  def initialize(id:, age:, name: 'Unknown', parent_permission: true)
     @corrector = Corrector.new
-    @id = rand 0..999
+    @id = id.nil? ? (rand 0..999) : id
     @name = validate_name(name)
     @age = age
     @parent_permission = parent_permission
