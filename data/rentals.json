@@ -1,12 +1,12 @@
 [
   {
     "type": "Rental",
-    "date": "5/5/5",
-    "id": 397,
+    "date": "Oct 13, 2021",
+    "id": 282,
     "book": {
       "type": "Book",
-      "title": "5",
-      "author": "5"
+      "title": "The Creeps",
+      "author": "Malvon Ried"
     }
   }
 ]

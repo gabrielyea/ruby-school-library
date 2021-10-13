@@ -1,7 +1,12 @@
 [
   {
     "type": "Book",
-    "title": "5",
-    "author": "5"
+    "title": "The Creeps",
+    "author": "Malvon Ried"
+  },
+  {
+    "type": "Book",
+    "title": "I am Sick",
+    "author": "Gab"
   }
 ]
