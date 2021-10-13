@@ -30,6 +30,8 @@ class Menu
   end
 
   def start
+    changed
+    notify_observers(:load_from_file)
     loop do
       display_menu
       user_input = gets.chomp.to_i
@@ -42,5 +44,7 @@ class Menu
 
       break if user_input == 7
     end
+    changed
+    notify_observers(:save_data)
   end
 end
