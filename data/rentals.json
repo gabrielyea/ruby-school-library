@@ -1,0 +1,12 @@
+[
+  {
+    "type": "Rental",
+    "date": "5/5/5",
+    "id": 397,
+    "book": {
+      "type": "Book",
+      "title": "5",
+      "author": "5"
+    }
+  }
+]

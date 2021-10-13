@@ -1,0 +1,51 @@
+[
+  {
+    "type": "Student",
+    "id": 397,
+    "name": "Gab",
+    "age": "45",
+    "parent_permission": true
+  },
+  {
+    "type": "Student",
+    "id": 336,
+    "name": "Gab",
+    "age": "45",
+    "parent_permission": true
+  },
+  {
+    "type": "Student",
+    "id": 698,
+    "name": "Stu",
+    "age": "54",
+    "parent_permission": true
+  },
+  {
+    "type": "Teacher",
+    "id": 457,
+    "name": "Gab",
+    "age": "45",
+    "specialization": null
+  },
+  {
+    "type": "Teacher",
+    "id": 113,
+    "name": "Gab",
+    "age": "45",
+    "specialization": null
+  },
+  {
+    "type": "Teacher",
+    "id": 282,
+    "name": "Tiche",
+    "age": "34",
+    "specialization": "teic"
+  },
+  {
+    "type": "Teacher",
+    "id": 957,
+    "name": "5",
+    "age": "4",
+    "specialization": "2"
+  }
+]
