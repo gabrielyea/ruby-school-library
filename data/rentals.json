@@ -1,0 +1,12 @@
+[
+  {
+    "type": "Rental",
+    "date": "Oct 13, 2021",
+    "id": 282,
+    "book": {
+      "type": "Book",
+      "title": "The Creeps",
+      "author": "Malvon Ried"
+    }
+  }
+]
