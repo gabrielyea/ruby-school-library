@@ -22,7 +22,7 @@ class DataController
     load_books
     load_students
     load_teachers
-    load_rentals
+    # load_rentals
   end
 
   private
@@ -38,6 +38,15 @@ class DataController
   end
 
   def load_students()
+    file = File.read('./data/people.json')
+    obj = JSON.parse(file).select { |o| o['type'] == 'Student' }
+    return if obj.empty?
+
+    obj.each do |o|
+      @people << Kernel.const_get(o['type']).new(
+        id: o['id'], classroom: o['classroom'], age: o['age'], name: o['name'], parent_permission: o['parent_permission']
+      )
+    end
   end
 
   def load_teachers()
