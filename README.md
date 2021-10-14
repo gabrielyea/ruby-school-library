@@ -15,6 +15,10 @@
 ## Built With 🔨
 - Ruby
 
+## Testing 
+- Run `Bundle install`
+- To run test write `rspec ./spec` on the console
+
 ## Author
 👤 *Gabriel Rendon*
 - GitHub: [@gabrielyea](https://github.com/gabrielyea)

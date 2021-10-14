@@ -53,7 +53,10 @@ class DataController
 
     obj.each do |o|
       @people << Kernel.const_get(o['type']).new(
-        id: o['id'], classroom: o['classroom'], age: o['age'], name: o['name'],
+        id: o['id'],
+        classroom: o['classroom'],
+        age: o['age'],
+        name: o['name'],
         parent_permission: o['parent_permission']
       )
     end
